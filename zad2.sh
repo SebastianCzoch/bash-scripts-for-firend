@@ -13,31 +13,27 @@ function decode {
   zbarimg $fName
 }
 
-function main {
-echo "main"
-}
-
 function mainMenu {
-case "$option" in 
-  "encode")
-    encode 
-    ;;
+  case "$option" in 
+    "encode")
+      encode 
+      ;;
 
-  "decode")
-    decode 
-    ;;
-  *)
-    echo -e "Usage:\n" \
-         "encode - encode typed text to QRCode\n" \
-         "decode - decode QRCode image to text\n" \
-         "anything else shows this main menu\n"
+    "decode")
+      decode 
+      ;;
 
-    read -p "Select option: " option
-    mainMenu
-    ;;
-esac
+    *)
+      echo -e "Usage:\n" \
+           "encode - encode typed text to QRCode\n" \
+           "decode - decode QRCode image to text\n" \
+           "anything else shows this main menu\n"
+
+      read -p "Select option: " option
+      mainMenu
+      ;;
+  esac
 }
 
 mainMenu
-
 
